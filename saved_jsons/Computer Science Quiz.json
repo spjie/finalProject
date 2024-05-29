@@ -1,0 +1,53 @@
+{
+    "type": "Quiz",
+    "title": "Computer Science Quiz",
+    "description": "Test your knowledge about computer science with these quiz questions!",
+    "quantity": 5,
+    "questions": [
+        {
+            "question": "What does HTML stand for?",
+            "correct_answer": "Hyper Text Markup Language",
+            "wrong_answers": [
+                "High Tech Multi Language",
+                "Hyperlink Transfer Markup Language",
+                "Home Tool Management Language"
+            ]
+        },
+        {
+            "question": "Which programming language is known for its use in artificial intelligence?",
+            "correct_answer": "Python",
+            "wrong_answers": [
+                "Java",
+                "C++",
+                "JavaScript"
+            ]
+        },
+        {
+            "question": "What is the purpose of CSS in web development?",
+            "correct_answer": "Styling and formatting web pages",
+            "wrong_answers": [
+                "Defining the structure of a webpage",
+                "Creating dynamic content",
+                "Managing server-side logic"
+            ]
+        },
+        {
+            "question": "What is the main function of a CPU in a computer system?",
+            "correct_answer": "Processing data and instructions",
+            "wrong_answers": [
+                "Storing all data permanently",
+                "Displaying images on the screen",
+                "Connecting to the internet"
+            ]
+        },
+        {
+            "question": "What is the binary equivalent of the decimal number 10?",
+            "correct_answer": "1010",
+            "wrong_answers": [
+                "1111",
+                "0010",
+                "1100"
+            ]
+        }
+    ]
+}

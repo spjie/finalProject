@@ -1,0 +1,36 @@
+{
+    "type": "Flashcards",
+    "title": "Graduate Art Flashcards",
+    "description": "Set of flashcards for graduate level art questions",
+    "quantity": 7,
+    "questions": [
+        {
+            "question": "Who is considered the father of modern art criticism?",
+            "answer": "Charles Baudelaire"
+        },
+        {
+            "question": "Which artist is known for their 'cut-out' technique?",
+            "answer": "Henri Matisse"
+        },
+        {
+            "question": "Who painted 'Guernica' depicting the horrors of the Spanish Civil War?",
+            "answer": "Pablo Picasso"
+        },
+        {
+            "question": "What art movement was founded by Andre Breton?",
+            "answer": "Surrealism"
+        },
+        {
+            "question": "Which artist is famous for her large-scale installation art?",
+            "answer": "Yayoi Kusama"
+        },
+        {
+            "question": "Who is known for creating the 'Campbell's Soup Cans' series?",
+            "answer": "Andy Warhol"
+        },
+        {
+            "question": "Which artist is associated with the 'Blue Period' and 'Rose Period'?",
+            "answer": "Pablo Picasso"
+        }
+    ]
+}
