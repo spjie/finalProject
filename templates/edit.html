@@ -8,8 +8,8 @@ Edit
 <div class="container m-5" id="div1">
     <div class="row">
         <div class="col-sm-6">
-            <h1>Title</h1>
-            <textarea class="form-control mb-5" rows="3" id="edit-desc"></textarea>
+            <input type="text" value="Title" id="edit-title" class="form-control mb-4" placeholder="Title">
+            <textarea class="form-control mb-5" rows="3" id="edit-desc" placeholder="Description"></textarea>
         </div>
         <div class="col-sm-6">
             <div class="d-flex justify-content-end">
@@ -25,20 +25,14 @@ Edit
     document.body.onload = addElements;
     let set = JSON.parse(localStorage.getItem('set'))
     let quantity = set.quantity
+    const filename = set.title
     let count = 0
     document.getElementById("add").addEventListener("click", newTerm)
-    let save_buttons = document.getElementsByClassName("save")
-    let delete_buttons = document.getElementsByClassName("delete")
-
-    for (let i = 0; i < save_buttons.length; i++) {
-        save_buttons[i].addEventListener("click", update)
-    }
-
-    for (let i = 0; i < delete_buttons.length; i++) {
-        delete_buttons[i].addEventListener("click", deleteTerm)
-    }
 
     function addElements() {
+        let title = document.getElementById('edit-title')
+        title.value = set.title
+
         let description = document.getElementById('edit-desc')
         description.value = set.description
 
@@ -47,13 +41,36 @@ Edit
             let a = set.questions[i].answer
             createTerm(q, a)
         }
+
+        let save_buttons = document.getElementsByClassName("save")
+        for (let i = 0; i < save_buttons.length; i++) {
+            save_buttons[i].addEventListener("click", function() {
+                deleteOriginalJson()
+                saveJson()
+                window.location.href = 'terms-preview'
+            })
+        }
+
+        let textareas = document.querySelectorAll('textarea')
+        textareas.forEach(textarea => {
+            textarea.addEventListener('blur', updateSet)
+        })
+
+        title.addEventListener('blur', updateSet)
+
+
     }
 
     function newTerm(e) {
         e.preventDefault()
-
         createTerm('', '')
-        quantity++
+        const newQuestion = {question: '', answer: ''};
+        set.questions.push(newQuestion);
+        set.quantity++;
+        localStorage.setItem("set", JSON.stringify(set))
+        set = JSON.parse(localStorage.getItem('set'))
+        quantity = set.quantity
+        console.log(quantity)
     }
 
     function createTerm(q, a) {
@@ -74,6 +91,12 @@ Edit
         delete_button.classList.add('btn', 'background-body', 'delete')
         delete_button.id = 'delete' + index
         delete_button.innerHTML = 'delete'
+
+        delete_button.addEventListener("click", function (e) {
+            deleteTerm(e, index);
+        });
+
+
         headDiv.append(delete_button)
         termHead.append(headDiv)
         newTerm.append(termHead)
@@ -94,7 +117,6 @@ Edit
         newQ.id = "q" + index
         newQ.value = q
 
-
         const newA = document.createElement("textarea")
         newA.classList.add('form-control')
         newA.id = "a" + index
@@ -111,26 +133,19 @@ Edit
         document.getElementById('div1').insertBefore(newTerm, button)
     }
 
-    function deleteTerm(e) {
+    function deleteTerm(e, index) {
         e.preventDefault()
-
-        // remove card
-        // update following cards numbers
-        // update ids
-
-        // i dont need to actually remove it from the set because cards behind it will just get the new id
-        // and then in update it will overwrite the original content
-        // if there are less cards than originally thats a problem. because old cards won't get overwritten.
-        // if there are more cards how do i make sure they're actually addded to the set..
-        // maybe store original quantity and new quantity?
-        // if its less we just delete until orig quantity
-        // if its more add
-
-        quantity--
+        set.questions.splice(index, 1)
+        set.quantity--
+        localStorage.setItem('set', JSON.stringify(set))
+        set = JSON.parse(localStorage.getItem('set'))
+        quantity = set.quantity
+        location.reload()
     }
 
-    function update(e) {
-        e.preventDefault()
+    function updateSet() {
+        let title = document.getElementById('edit-title')
+        set.title = title.value
 
         let description = document.getElementById('edit-desc')
         set.description = description.value
@@ -141,9 +156,39 @@ Edit
         }
 
         localStorage.setItem('set', JSON.stringify(set))
-        localStorage.setItem('quantity', quantity)
-        window.location.href = 'terms-preview'
+        set = JSON.parse(localStorage.getItem('set'))
+        console.log('saved')
     }
+
+    function deleteOriginalJson() {
+        let file = filename + '.json'
+        fetch('/delete/' + file)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success: ', data)
+            })
+            .catch((error) => {
+                console.error('Error:', error)
+            })
+    }
+
+    function saveJson() {
+        fetch('/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(set)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
 
 </script>
 {% endblock %}
