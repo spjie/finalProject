@@ -1,0 +1,28 @@
+{
+    "description": "This flashcard set includes 5 questions on math at level 6.",
+    "quantity": 5,
+    "questions": [
+        {
+            "answer": "3.14",
+            "question": "What is the value of pi (\u03c0) rounded to two decimal places?"
+        },
+        {
+            "answer": "6x",
+            "question": "Simplify the expression: 3x + 5x - 2x"
+        },
+        {
+            "answer": "75\u00b0",
+            "question": "If a triangle has angles measuring 45\u00b0 and 60\u00b0, what is the measure of the third angle?"
+        },
+        {
+            "answer": "-28",
+            "question": "What is the result of multiplying 7 by -4?"
+        },
+        {
+            "answer": "x = 4",
+            "question": "Solve for x: 2x + 8 = 16"
+        }
+    ],
+    "title": "Math Flashcards Set",
+    "type": "Flashcards"
+}

@@ -1,5 +1,88 @@
+body {
+    color: #5F423D
+}
 
-/*.navbar {*/
-/*    padding-top: 0px;*/
-/*    background-color: #;*/
-/*}*/
+
+.navbar-brand {
+    /*font-family: "gira-sans", sans-serif;*/
+    text-align: center;
+    color: #5F423D;
+}
+
+.navbar-brand:hover {
+    color: #39231F;
+}
+
+.nav-link {
+    /*font-family: "gira-sans", sans-serif;*/
+    /*font-weight: 400;*/
+    color: #5F423D;
+    margin-left: 20px;
+}
+
+.nav-link:hover {
+    color: #39231F;
+}
+
+.navbar {
+    padding-top: 0px;
+    background-color: #FFE5F1;
+}
+
+.card {
+    color: #5F423D;
+    /*background-color: #FFE5F1;*/
+    border: none;
+    border-radius: 10px;
+}
+
+/*maybe unsure kind of ugly*/
+.shadow-lg-custom {
+    box-shadow: 0 1rem 3rem rgba(95, 66, 61, 0.2) !important;
+}
+
+.btn-light {
+    color: #5F423D;
+    background-color: #FFE5F1;
+    border: none;
+}
+
+.btn-light:hover {
+    color: #5F423D;
+    background-color: #FFCFE5;
+}
+
+textarea:disabled {
+    color: #5F423D;
+    background-color: #F5F3F3;
+    border-radius: 10px;
+    border:none;
+    padding: 10px;
+}
+
+.dropdown-item {
+    color: #5F423D;
+}
+
+.dropdown-item:hover {
+    color: #39231F;
+    background-color: #F5F3F3;
+}
+
+.type {
+    background-color: #FFE5F1;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+a:hover {
+
+}
+
+.preview-term {
+    background-color: #F5F3F3;
+}
+
+.card-head {
+    background-color: #F5F3F3;
+}

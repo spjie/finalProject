@@ -78,7 +78,7 @@ Library
                 newSetCol.classList.add('col-sm-4')
 
                 let newSet = document.createElement('div')
-                newSet.classList.add('card', 'my-2')
+                newSet.classList.add('card', 'my-2', 'shadow-lg-custom')
 
                 let setTitle = document.createElement('div')
                 setTitle.classList.add('card-title', 'd-flex', 'justify-content-between', 'mt-4', 'mx-3')
@@ -120,13 +120,16 @@ Library
                 bodyTerms.classList.add('card-text')
                 bodyTerms.innerHTML = set.quantity + ' terms'
                 let bodyType = document.createElement('p')
-                bodyType.innerHTML = set.type
+                let bodyTypeSpan = document.createElement('span')
+                bodyTypeSpan.innerHTML = set.type
+                bodyTypeSpan.classList.add('type')
 
                 newSetCol.append(newSet)
                 newSet.append(setTitle)
                 newSet.append(setBody)
                 setBody.append(bodyTerms)
                 bodyTerms.append(bodyType)
+                bodyType.append(bodyTypeSpan)
 
                 setTitle.append(titleTitle)
                 setTitle.append(titleDropdown)
