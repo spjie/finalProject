@@ -1,0 +1,32 @@
+{
+    "type": "Flashcards",
+    "title": "International Criminal Court (ICC)",
+    "description": "Learn about the mission and functions of the International Criminal Court",
+    "quantity": 6,
+    "questions": [
+        {
+            "question": "What is the mission of the ICC?",
+            "answer": "The mission of the ICC is to hold accountable people responsible for the worst crimes globally."
+        },
+        {
+            "question": "What was the goal behind creating the ICC?",
+            "answer": "The goal was to create a permanent and efficient court for trying global crimes."
+        },
+        {
+            "question": "How many judges does the ICC have?",
+            "answer": "The ICC has 18 judges."
+        },
+        {
+            "question": "How does the ICC handle apprehending suspects?",
+            "answer": "The ICC relies completely on member countries to apprehend suspects since they don't have a police force of their own."
+        },
+        {
+            "question": "What is the difference between the ICC and the ICJ?",
+            "answer": "The ICC prosecutes criminals, while the ICJ settles disputes between States."
+        },
+        {
+            "question": "Can the ICC open cases on nonmember countries?",
+            "answer": "In some events, the ICC can open cases on nonmember countries."
+        }
+    ]
+}

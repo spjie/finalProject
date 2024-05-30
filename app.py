@@ -21,11 +21,6 @@ def terms_preview():
     return render_template("terms-preview.html")
 
 
-@app.route('/quiz-preview')
-def quiz_preview():
-    return render_template("quiz-preview.html")
-
-
 @app.route('/terms-select')
 def terms_select():
     return render_template("terms-select.html")
@@ -36,6 +31,16 @@ def terms_notes():
     return render_template("terms-notes.html")
 
 
+@app.route('/terms-library')
+def terms_library():
+    return render_template("terms-library.html")
+
+
+@app.route('/quiz-preview')
+def quiz_preview():
+    return render_template("quiz-preview.html")
+
+
 @app.route('/quiz-select')
 def quiz_select():
     return render_template("quiz-select.html")
@@ -44,6 +49,16 @@ def quiz_select():
 @app.route('/quiz-notes')
 def quiz_notes():
     return render_template("quiz-notes.html")
+
+
+@app.route('/quiz-library')
+def quiz_library():
+    return render_template("quiz-library.html")
+
+
+@app.route('/library/<page>')
+def library(page):
+    return render_template("library.html", page=page)
 
 
 @app.route('/study')

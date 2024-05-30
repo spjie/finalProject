@@ -23,8 +23,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Library</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Flashcards</a></li>
-                    <li><a class="dropdown-item" href="#">Quizzes</a></li>
+                    <li><a class="dropdown-item" href="/library/Flashcards">Flashcards</a></li>
+                    <li><a class="dropdown-item" href="/library/Quiz">Quizzes</a></li>
+                    <li><a class="dropdown-item" href="/library/All">See all</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -91,19 +92,7 @@
     </div>
 </div>
 
-{% block main %} {% endblock %}
+{% block main %}
+{% endblock %}
 </body>
-<script>
-    // document.getElementById("nav-flashcards").addEventListener('click', flashcards)
-    // document.getElementById("nav-quizzes").addEventListener('click', quizzes)
-    //
-    // function flashcards(e) {
-    //     e.preventDefault()
-    //
-    //     let modal = document.createElement('div')
-    //     modal.classList.add('modal-')
-    }
-
-    // if select is clicked from terms send through url
-</script>
 </html>
