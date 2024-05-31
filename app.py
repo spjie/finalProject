@@ -21,14 +21,14 @@ def terms_preview():
     return render_template("terms-preview.html")
 
 
-@app.route('/terms-select')
-def terms_select():
-    return render_template("terms-select.html")
+@app.route('/select/<type>')
+def select(type):
+    return render_template("select.html", type=type)
 
 
-@app.route('/terms-notes')
-def terms_notes():
-    return render_template("terms-notes.html")
+@app.route('/notes/<type>')
+def terms_notes(type):
+    return render_template("notes.html", type=type)
 
 
 @app.route('/quiz-preview')
@@ -59,7 +59,6 @@ def study():
 @app.route('/learn')
 def learn():
     return render_template("learn.html")
-
 
 
 @app.route('/terms-quiz')
@@ -154,11 +153,6 @@ def notes_chat_completion():
 @app.route('/test')
 def test():
     return render_template("test.html")
-
-
-@app.route('/index-test')
-def index_test():
-    return render_template("index-test.html")
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Create Quiz
+Create {{ type }}
 {% endblock %}
 
 {% block main %}
@@ -12,7 +12,8 @@ Create Quiz
 </style>
 <div class="container m-5">
     <div class="shadow-lg bg-body rounded p-5">
-        <h1 class="mb-4">Select</h1>
+        <h1 class="mb-1">Select</h1>
+        <h5 id="select-type" class="mb-4">{{ type }}</h5>
         <form>
             <!--                    <label for="subject">Select Subject</label>-->
             <div class="mb-4">
@@ -75,10 +76,11 @@ Create Quiz
             </div>
             <!--                    <label for="details">Add Details</label>-->
             <input type="text" class="form-control mb-4" id="details" name="details" placeholder="Details">
+
             <!--                    <label for="select-create">Create Button</label>-->
-            <button type="submit" class="btn btn-light" id="select-create">
-                        <span class="spinner-border spinner-border-sm visually-hidden" role="status"
-                              id="select-spinner"> </span>
+            <button type="submit" class="btn btn-light" id="create">
+                <span class="spinner-border spinner-border-sm visually-hidden" role="status"
+                      id="select-spinner"> </span>
                 <span id="select-btn-text">Create</span>
             </button>
         </form>
@@ -86,8 +88,11 @@ Create Quiz
 </div>
 
 <script>
-    document.getElementById("select-create").addEventListener("click", fetchSelectData);
-    let quantity;
+    document.getElementById("create").addEventListener("click", fetchSelectData);
+    let quantity
+    let conversation
+    let next_window
+    let key
 
     // i can't tell whether this works or not (need to change for both....)
     window.addEventListener("keydown", function (e) {
@@ -102,20 +107,40 @@ Create Quiz
 
         let subject, grade, details
 
-
-        let conversation = [
-            {
-                "role": "system", "content": "Generate a number of quiz questions each with four answer options, " +
-                    "one of which should be correct, as specified by user, on a specific topic and level specified " +
-                    "by the user. They will be provided in the format quantity grade subject, plus optional details. " +
-                    "Also generate a title and description for the set of questions. Return JSON. The JSON should " +
-                    "have a key named type for which the value should be 'Quiz', a key named title for the title, a " +
-                    "key named description for the description, a key named quantity for which the value should be " +
-                    "the quantity inputted by the user, and a key named 'questions', for which the value is " +
-                    "an array consisting of a key called 'question', one key called 'correct_answer', and a key " +
-                    "called 'wrong_answers'. Return JSON."
-            }
-        ]
+        let type = document.getElementById('select-type').innerText
+        console.log(type)
+        if (type == 'Flashcards') {
+            conversation = [
+                {
+                    "role": "system", "content": "Generate a number of question answer sets as specified by user, " +
+                        "on a specific topic and level specified by the user. Also generate a title and description " +
+                        "for the set of questions. They will be provided in the format quantity + 'notes'. Return " +
+                        "JSON. The JSON should have a key named type for which the value should be 'Flashcards', a key " +
+                        "named title for the title, a key named description for " +
+                        "the description, a key named quantity for which the value should be the quantity inputted by " +
+                        "the user, and a key named 'questions', for which the value is an array consisting of a key " +
+                        "called 'question' and a key called 'answer'. Return JSON."
+                }
+            ]
+            next_window = '/terms-preview'
+            key = 'set'
+        } else {
+            conversation = [
+                {
+                    "role": "system", "content": "Generate a number of quiz questions each with four answer options, " +
+                        "one of which should be correct, as specified by user, on a specific topic and level specified " +
+                        "by the user. They will be provided in the format quantity grade subject, plus optional details. " +
+                        "Also generate a title and description for the set of questions. Return JSON. The JSON should " +
+                        "have a key named type for which the value should be 'Quiz', a key named title for the title, a " +
+                        "key named description for the description, a key named quantity for which the value should be " +
+                        "the quantity inputted by the user, and a key named 'questions', for which the value is " +
+                        "an array consisting of a key called 'question', one key called 'correct_answer', and a key " +
+                        "called 'wrong_answers'. Return JSON."
+                }
+            ]
+            next_window = '/quiz'
+            key = 'quiz'
+        }
 
         let subjectInput = document.getElementById("subject")
         if (subjectInput.value == "Subject") {
@@ -155,6 +180,7 @@ Create Quiz
         quantityInput.value = ""
         detailsInput.value = ""
 
+
         let text = document.getElementById("select-btn-text");
         text.innerText = "";
         let span = document.getElementById("select-spinner");
@@ -175,6 +201,7 @@ Create Quiz
             .then(jsonData => {
                 for (let i = 0; i < quantity; i++) {
                     console.log("question: " + jsonData.questions[i].question);
+                    console.log("answer: " + jsonData.questions[i].answer);
                 }
 
                 saveJson(jsonData)
@@ -209,8 +236,8 @@ Create Quiz
         })
             .then(response => response.json())
             .then(data => {
-                localStorage.setItem('quiz', JSON.stringify(data))
-                window.location.href = 'quiz'
+                localStorage.setItem(key, JSON.stringify(data))
+                window.location.href = next_window
             })
             .catch((error) => {
                 console.error('Error:', error)

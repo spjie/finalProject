@@ -1,0 +1,28 @@
+{
+    "type": "Flashcards",
+    "title": "Globalization Flashcards",
+    "description": "Flashcards covering various aspects of globalization including economic, cultural, technological, political, and environmental dimensions.",
+    "quantity": 5,
+    "questions": [
+        {
+            "question": "What is one of the key components of economic globalization related to international trade?",
+            "answer": "Trade: Expansion of international trade and the establishment of global markets."
+        },
+        {
+            "question": "What aspect of globalization involves the increase in foreign direct investment and multinational corporations?",
+            "answer": "Investment: Increase in foreign direct investment (FDI) and multinational corporations (MNCs)."
+        },
+        {
+            "question": "Which area of globalization is characterized by global financial markets and the movement of capital across borders?",
+            "answer": "Finance: Global financial markets and the movement of capital across borders."
+        },
+        {
+            "question": "What does cultural globalization encompass in terms of spreading ideas, values, and cultural products?",
+            "answer": "Cultural Exchange: Spread of ideas, values, and cultural products (e.g., films, music, food)."
+        },
+        {
+            "question": "What phenomenon in cultural globalization refers to the mixing and blending of different cultures?",
+            "answer": "Cultural Hybridization: Mixing and blending of different cultures, leading to new cultural forms."
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "type": "Quiz",
+    "title": "Mandarin Language Quiz",
+    "description": "Test your knowledge of Mandarin language with these questions.",
+    "quantity": 3,
+    "questions": [
+        {
+            "question": "What is the Mandarin word for 'hello'?",
+            "correct_answer": "N\u01d0 h\u01ceo",
+            "wrong_answers": [
+                "Xi\u00e8xie",
+                "Z\u00e0iji\u00e0n",
+                "W\u01d2 de m\u00e1o"
+            ]
+        },
+        {
+            "question": "How do you say 'thank you' in Mandarin?",
+            "correct_answer": "Xi\u00e8xie",
+            "wrong_answers": [
+                "T\u0101m\u00e8i",
+                "B\u00f9 y\u00e0ng",
+                "Q\u00f9 n\u01cer"
+            ]
+        },
+        {
+            "question": "What does 'w\u01d2 \u00e0i n\u01d0' mean in English?",
+            "correct_answer": "I love you",
+            "wrong_answers": [
+                "Hello, my friend",
+                "How are you?",
+                "Goodbye"
+            ]
+        }
+    ]
+}

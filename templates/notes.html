@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Create Flashcards
+Create {{ type }}
 {% endblock %}
 
 {% block main %}
@@ -12,7 +12,8 @@ Create Flashcards
 </style>
 <div class="container m-5">
     <div class="shadow-lg bg-body rounded p-5">
-        <h1 class="mb-4">Notes</h1>
+        <h1 class="mb-1">Notes</h1>
+        <h5 id='notes-type' class="mb-4">{{ type }}</h5>
         <form>
             <!--                    <label for="notes">Notes</label>-->
             <div class="mb-4">
@@ -43,6 +44,9 @@ Create Flashcards
     document.getElementById("notes-create").addEventListener("click", fetchNotesData);
 
     let quantity;
+    let conversation
+    let next_window
+    let key
 
     // i can't tell whether this works or not (need to change for both....)
     window.addEventListener("keydown", function (e) {
@@ -79,18 +83,41 @@ Create Flashcards
         e.preventDefault();
         let notes
 
-        let conversation = [
-            {
-                "role": "system", "content": "Generate a number of question answer sets as specified by user, " +
-                    "based on notes provided by the user. Also generate a title and description for the set of " +
-                    "questions. They will be provided in the format quantity + 'notes'. Return JSON. The JSON " +
-                    "should have a key named type for which the value should be 'Flashcards', a key named title for " +
-                    "the title, a key named description for the description, " +
-                    "a key named quantity for which the value should be the quantity inputted by the user, " +
-                    "and a key named 'questions', for which the value is an array consisting of a key called " +
-                    "'question' and a key called 'answer'."
-            }
-        ]
+        let type = document.getElementById('notes-type').innerText
+        if (type == 'Flashcards') {
+            conversation = [
+                {
+                    "role": "system", "content": "Generate a number of question answer sets as specified by user, " +
+                        "based on notes provided by the user. Also generate a title and description for the set of " +
+                        "questions. They will be provided in the format quantity + 'notes'. Return JSON. The JSON " +
+                        "should have a key named type for which the value should be 'Flashcards', a key named title for " +
+                        "the title, a key named description for the description, " +
+                        "a key named quantity for which the value should be the quantity inputted by the user, " +
+                        "and a key named 'questions', for which the value is an array consisting of a key called " +
+                        "'question' and a key called 'answer'."
+                }
+            ]
+            next_window = '/terms-preview'
+            key = 'set'
+
+        } else {
+            conversation = [
+                {
+                    "role": "system", "content": "Generate a number of quiz questions each with four answer options, " +
+                        "one of which should be correct, as specified by user, based on notes provided by the user. " +
+                        "They will be provided in the format quantity + 'notes'. Also generate a title and description " +
+                        "for the set of questions. Return JSON. The JSON should have a key named type for which the " +
+                        "value should be 'Quiz', a key named title for the title, a key named description for the " +
+                        "description, a key named quantity for which the value should be the quantity inputted by the " +
+                        "user, and a key named 'questions', for which the value is an array consisting of a " +
+                        "key called 'question', one key called 'correct_answer', and a key called 'wrong_answers'. " +
+                        "Return JSON."
+                }
+            ]
+            next_window = '/quiz'
+            key = 'quiz'
+        }
+
 
         // check for valid input
         let notesInput = document.getElementById("notes")
@@ -175,8 +202,8 @@ Create Flashcards
         })
             .then(response => response.json())
             .then(data => {
-                localStorage.setItem('set', JSON.stringify(data))
-                window.location.href = 'terms-preview'
+                localStorage.setItem(key, JSON.stringify(data))
+                window.location.href = next_window
             })
             .catch((error) => {
                 console.error('Error:', error)
