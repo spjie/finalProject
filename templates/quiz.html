@@ -44,7 +44,7 @@ Quiz
     document.getElementById("quiz-submit").addEventListener('click', getResults)
 
     let quiz = JSON.parse(localStorage.getItem('quiz'))
-    let quantity = localStorage.getItem('quantity')
+    let quantity = quiz.quantity
     let card = 0
     let display = 1
     let question = true

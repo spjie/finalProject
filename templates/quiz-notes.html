@@ -48,7 +48,7 @@ Create Quiz
     // i can't tell whether this works or not (need to change for both....)
     window.addEventListener("keydown", function (e) {
         if (e.code == 'Enter') {
-            fetchSelectData(e)
+            fetchNotesData(e)
         }
     })
 
@@ -84,17 +84,18 @@ Create Quiz
         let quantityInput = document.getElementById("quiz-quantity")
         if (quantityInput.value == '') {
             quantityInput.classList.add('is-invalid')
-            document.getElementById('quiz-feedback').classList.remove('visually-hidden')
+            document.getElementById('quiz-quantity-feedback').classList.remove('visually-hidden')
             throw new Error("Quantity required.")
 
         } else {
             quantityInput.classList.remove('is-invalid')
-            document.getElementById('quiz-feedback').classList.add('visually-hidden')
+            document.getElementById('quiz-quantity-feedback').classList.add('visually-hidden')
             quantity = quantityInput.value
         }
         notesInput.value = ""
         quantityInput.value = "";
 
+        console.log(quantity)
 
         let text = document.getElementById("notes-btn-text");
         text.innerText = "";
@@ -114,6 +115,8 @@ Create Quiz
                 return response.json();
             })
             .then(jsonData => {
+                console.log(quantity)
+                console.log(jsonData)
                 for (let i = 0; i < quantity; i++) {
                     console.log("question: " + jsonData.questions[i].question);
                 }

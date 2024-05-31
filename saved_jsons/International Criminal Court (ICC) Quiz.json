@@ -1,0 +1,98 @@
+{
+    "type": "Quiz",
+    "title": "International Criminal Court (ICC) Quiz",
+    "description": "Test your knowledge about the International Criminal Court (ICC) and its mission.",
+    "quantity": 10,
+    "questions": [
+        {
+            "question": "What is the main mission of the ICC?",
+            "correct_answer": "To hold accountable people responsible for the worst crimes globally",
+            "wrong_answers": [
+                "To promote peace between nations",
+                "To provide legal aid to refugees",
+                "To regulate international trade"
+            ]
+        },
+        {
+            "question": "How many judges does the ICC have?",
+            "correct_answer": "18",
+            "wrong_answers": [
+                "10",
+                "25",
+                "30"
+            ]
+        },
+        {
+            "question": "Does the ICC have its own police force?",
+            "correct_answer": "No, it relies on member countries to apprehend suspects",
+            "wrong_answers": [
+                "Yes, it has a dedicated police force",
+                "It borrows police forces from the United Nations",
+                "It contracts private security firms"
+            ]
+        },
+        {
+            "question": "What is the main difference between the ICC and the ICJ?",
+            "correct_answer": "ICC prosecutes criminals, ICJ settles disputes between States",
+            "wrong_answers": [
+                "ICC focuses on civil cases, ICJ on criminal cases",
+                "ICC is a regional court, ICJ is a global court",
+                "ICC only deals with domestic cases, ICJ with international cases"
+            ]
+        },
+        {
+            "question": "What can the ICC issue to apprehend suspects?",
+            "correct_answer": "Arrest warrants and summons",
+            "wrong_answers": [
+                "Diplomatic immunity cards",
+                "Cash rewards",
+                "Public warnings"
+            ]
+        },
+        {
+            "question": "On what basis can the ICC open cases on countries?",
+            "correct_answer": "Member countries and sometimes nonmember countries",
+            "wrong_answers": [
+                "Only on nonmember countries",
+                "Only on member countries",
+                "At the request of the United Nations"
+            ]
+        },
+        {
+            "question": "What type of court did the ICC aim to create?",
+            "correct_answer": "Permanent and efficient court for trying global crimes",
+            "wrong_answers": [
+                "Temporary and slow court for local crimes",
+                "Appeals court for civil cases",
+                "Tribunal for economic disputes"
+            ]
+        },
+        {
+            "question": "Who is responsible for apprehending suspects for the ICC?",
+            "correct_answer": "Member countries",
+            "wrong_answers": [
+                "Interpol",
+                "Private investigators",
+                "The ICC itself"
+            ]
+        },
+        {
+            "question": "Does the ICC have jurisdiction over nonmember countries?",
+            "correct_answer": "Yes, in some events",
+            "wrong_answers": [
+                "No, never",
+                "Yes, always",
+                "Only with explicit permission from the United Nations"
+            ]
+        },
+        {
+            "question": "What is the total number of judges in the ICC?",
+            "correct_answer": "18",
+            "wrong_answers": [
+                "12",
+                "20",
+                "25"
+            ]
+        }
+    ]
+}

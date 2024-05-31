@@ -61,6 +61,12 @@ def learn():
     return render_template("learn.html")
 
 
+
+@app.route('/terms-quiz')
+def terms_quiz():
+    return render_template("terms-quiz.html")
+
+
 @app.route('/quiz')
 def quiz():
     return render_template("quiz.html")

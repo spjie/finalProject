@@ -1,10 +1,19 @@
 body {
-    color: #5F423D
+    color: #5F423D;
+    font-family: "elza-text", sans-serif;
+    font-weight: 400;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
 
 .navbar-brand {
-    /*font-family: "gira-sans", sans-serif;*/
+    font-family: "arial", sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
     text-align: center;
     color: #5F423D;
 }
@@ -14,8 +23,9 @@ body {
 }
 
 .nav-link {
-    /*font-family: "gira-sans", sans-serif;*/
-    /*font-weight: 400;*/
+    font-family: "elza-text", sans-serif;
+    font-weight: 400;
+    font-size: 1.125em;
     color: #5F423D;
     margin-left: 20px;
 }
@@ -45,6 +55,11 @@ body {
     color: #5F423D;
     background-color: #FFE5F1;
     border: none;
+    border-radius: 50px;
+}
+
+.btn-light h5, h6 {
+    margin: 0;
 }
 
 .btn-light:hover {
@@ -56,7 +71,7 @@ textarea:disabled {
     color: #5F423D;
     background-color: #F5F3F3;
     border-radius: 10px;
-    border:none;
+    border: none;
     padding: 10px;
 }
 
@@ -86,3 +101,28 @@ a:hover {
 .card-head {
     background-color: #F5F3F3;
 }
+
+
+#gradient {
+    background-image: radial-gradient(circle, #FFE5F1 5%, #ffffff 60%);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: 700;
+}
+
+
+.btn-index {
+    border: 1px solid #5F423D;
+}
+
+.btn-index:hover {
+    border: 1px solid #5F423D;
+}
+
