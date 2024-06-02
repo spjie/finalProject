@@ -1,20 +1,20 @@
 {
-    "type": "Flashcards",
-    "title": "History Flashcards",
     "description": "A set of flashcards to test your knowledge on historical events and figures.",
     "quantity": 3,
     "questions": [
         {
-            "question": "Who was the first President of the United States?",
-            "answer": "George Washington"
+            "answer": "George Washington",
+            "question": "Who was the first President of the United States?"
         },
         {
-            "question": "Which war lasted from 1914 to 1918 and involved many countries around the world?",
-            "answer": "World War I"
+            "answer": "World War I",
+            "question": "Which war lasted from 1914 to 1918 and involved many countries around the world?"
         },
         {
-            "question": "What famous document begins with the words 'When in the course of human events'?",
-            "answer": "The Declaration of Independence"
+            "answer": "The Declaration of Independence",
+            "question": "What famous document begins with the words 'When in the course of human events'?"
         }
-    ]
+    ],
+    "title": "History Flashcards",
+    "type": "Flashcards"
 }

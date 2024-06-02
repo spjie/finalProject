@@ -130,3 +130,16 @@ h3 {
     color: #5F423D;
 }
 
+
+.full-page {
+    height: 100%;
+}
+
+.container {
+    padding-bottom: 30px;
+}
+
+.edit-card {
+    border: 2px solid #F5F3F3;
+    border-radius: 10px;
+}

@@ -10,7 +10,8 @@ Create {{ type }}
         text-align: center;
     }
 </style>
-<div class="container m-5">
+<!--add full page class. how do i center it in viewport with nav-->
+<div class="container m-5 d-flex flex-column justify-content-center">
     <div class="shadow-lg bg-body rounded p-5">
         <h1 class="mb-1">Select</h1>
         <h5 id="select-type" class="mb-4">{{ type }}</h5>
@@ -78,7 +79,7 @@ Create {{ type }}
             <input type="text" class="form-control mb-4" id="details" name="details" placeholder="Details">
 
             <!--                    <label for="select-create">Create Button</label>-->
-            <button type="submit" class="btn btn-light" id="create">
+            <button type="submit" class="btn btn-light p-3 px-5" id="create">
                 <span class="spinner-border spinner-border-sm visually-hidden" role="status"
                       id="select-spinner"> </span>
                 <span id="select-btn-text">Create</span>
